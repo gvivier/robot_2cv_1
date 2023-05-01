@@ -1,5 +1,5 @@
-let Dist_30 = 0
-let dist_150 = 0
+let Dist_0 = 0
+let dist_180 = 0
 let Distance = 0
 pins.servoWritePin(AnalogPin.P2, 90)
 basic.forever(function () {
@@ -15,30 +15,30 @@ basic.forever(function () {
         kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor1)
         kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor2)
         basic.pause(500)
-        pins.servoWritePin(AnalogPin.P2, 150)
+        pins.servoWritePin(AnalogPin.P2, 180)
         basic.pause(500)
-        dist_150 = sonar.ping(
+        dist_180 = sonar.ping(
         DigitalPin.P1,
         DigitalPin.P0,
         PingUnit.Centimeters
         )
         basic.pause(500)
-        pins.servoWritePin(AnalogPin.P2, 30)
+        pins.servoWritePin(AnalogPin.P2, 0)
         basic.pause(500)
-        Dist_30 = sonar.ping(
+        Dist_0 = sonar.ping(
         DigitalPin.P1,
         DigitalPin.P0,
         PingUnit.Centimeters
         )
         basic.pause(500)
         pins.servoWritePin(AnalogPin.P2, 90)
-        if (Dist_30 < dist_150) {
-            kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 50)
-            basic.pause(300)
+        if (Dist_0 < dist_180) {
+            kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 30)
+            basic.pause(1000)
             kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor2)
         } else {
-            kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 50)
-            basic.pause(300)
+            kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 30)
+            basic.pause(1000)
             kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor1)
         }
     } else {
