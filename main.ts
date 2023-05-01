@@ -34,11 +34,11 @@ basic.forever(function () {
         pins.servoWritePin(AnalogPin.P2, 90)
         if (Dist_30 < dist_150) {
             kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor2, kitronik_klip_motor.MotorDirection.Forward, 50)
-            basic.pause(500)
+            basic.pause(200)
             kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor2)
         } else {
             kitronik_klip_motor.motorOn(kitronik_klip_motor.Motors.Motor1, kitronik_klip_motor.MotorDirection.Forward, 50)
-            basic.pause(1000)
+            basic.pause(200)
             kitronik_klip_motor.motorOff(kitronik_klip_motor.Motors.Motor1)
         }
     } else {
